@@ -7,6 +7,8 @@ From inside folder:
 docker run -it --rm -e AZURE_CONFIG_DIR=/root/.azaks/azdir -v ${PWD}:/root/.azaks/azdir mcr.microsoft.com/azure-cli /bin/sh
 ```
 
+Use `%cd%` if using CMD.
+
 ## Examples:
 
 ```
