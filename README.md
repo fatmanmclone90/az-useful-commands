@@ -16,4 +16,6 @@ az cosmosdb list-connection-strings --name awe-xxxx --resource-group xxxx
 
 az cosmosdb keys list --name xxxx --resource-group xxxx
 
+az pipelines list --organization https://dev.azure.com/next-WHDS --project WHDS-DFT-Integration --output table > pipelines.txt
+
 ```
