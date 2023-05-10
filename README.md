@@ -28,12 +28,16 @@ docker run -it --rm -v %cd%:/root/.azaks -e KUBECONFIG=/root/.azaks/config alpin
 e/k8s:1.26.3 /bin/sh
 ```
 
-## Examples ##
+## Kubectl Examples ##
 ```
 kubectl config get-contexts                      
 kubectl config current-context                       
 kubectl config use-context my-cluster-name  
+kubectl get deployments -n namespace
+kubectl delete --all deployments -n=namespace
+```
 
-
- kubectl get deployments -n namespace
+## Helm Examples
+```
+helm uninstall $(helm list --short -n  namespace) -n namespace
 ```
