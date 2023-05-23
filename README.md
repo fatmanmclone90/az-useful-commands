@@ -36,6 +36,7 @@ kubectl config use-context my-cluster-name
 kubectl get deployments -n namespace
 kubectl delete --all deployments -n namespace
 kubectl delete deployment <name> -n <namespace>
+kubectl get configMaps -n <namespace>
 ```
 
 ## Helm Examples
