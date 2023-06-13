@@ -43,4 +43,5 @@ kubectl get configMaps -n <namespace>
 ```
 helm uninstall $(helm list --short -n  namespace) -n namespace
 helm uninstall $(helm list --short --filter -listener$  -n namespace) -n namespace
+helm ls -n namespace
 ```
