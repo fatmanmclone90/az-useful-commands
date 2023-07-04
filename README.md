@@ -45,3 +45,22 @@ helm uninstall $(helm list --short -n  namespace) -n namespace
 helm uninstall $(helm list --short --filter -listener$  -n namespace) -n namespace
 helm ls -n namespace
 ```
+
+# TCP Dump from Pods
+
+Requires permissions to be able to exec into pods in cluster.
+
+```
+namespace="<namespace>"
+kubectl get pods -n $namespace | grep <some selector>
+podId = "<some id>"
+kubectl exec -i $podId -n $namespace -- /bin/sh
+apk --no-cache --update add tcpdump
+tcpdump -s 0 -vvv -w capture.cap
+```
+
+After test finish:
+
+```
+kubectl cp --retries=1 $namespace/$listener:capture.cap some-capture.cap
+```
