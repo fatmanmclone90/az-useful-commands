@@ -39,6 +39,16 @@ kubectl delete deployment <name> -n <namespace>
 kubectl get configMaps -n <namespace>
 ```
 
+### Number of Deployed Pods per Node
+```
+kubectl get pods -A -o jsonpath='{range .items[?(@.spec.nodeName)]}{.spec.nodeName}{"\n"}{end}' | sort | uniq -c | sort -rn
+```
+
+### List value of Label for Each Node
+```
+kubectl get nodes -A -o jsonpath='{range .items[*]}{.metadata.labels.topology\.kubernetes\.io\/zone}{"\n"}{end}'
+```
+
 ## Helm Examples
 ```
 helm uninstall $(helm list --short -n  namespace) -n namespace
