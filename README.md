@@ -57,6 +57,12 @@ helm uninstall $(helm list --short --filter -listener$  -n namespace) -n namespa
 helm ls -n namespace
 ```
 
+## Identities
+
+```
+kubectl get azureidentities --all-namespaces -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.annotations.meta\.helm\.sh\/release-name}{"\t"}{.metadata.labels.location}{"\t"}{.metadata.labels.provider}{"\t"}{.metadata.labels.project}{"\t"}{.spec.resourceID}{"\n"}{end}'
+```
+
 # TCP Dump from Pods
 
 Requires permissions to be able to exec into pods in cluster.
