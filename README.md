@@ -57,6 +57,12 @@ helm uninstall $(helm list --short --filter -listener$  -n namespace) -n namespa
 helm ls -n namespace
 ```
 
+## Delete using Wildcard
+
+```
+kubectl get secrets -n namespace --no-headers=true | awk '/sh.helm.release.v1./{print $1}' | xargs kubectl delete -n namespace
+```
+
 ## Identities
 
 ```
