@@ -40,6 +40,14 @@ kubectl get configMaps -n <namespace>
 kubectl get deployments -l name=value -n namespace -o=jsonpath='{range .items[*]}{.metadata.annotations.meta\.helm\.sh/release-name}{"\n"}{end}'
 ```
 
+## Kubectl with CURL
+
+```
+kubectl run curlpod --image=curlimages/curl --namespace=namespace -i --tty -- sh
+```
+
+Starts a CURL pod in the desired namespace.
+
 ### Number of Deployed Pods per Node
 ```
 kubectl get pods -A -o jsonpath='{range .items[?(@.spec.nodeName)]}{.spec.nodeName}{"\n"}{end}' | sort | uniq -c | sort -rn
