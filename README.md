@@ -40,6 +40,13 @@ kubectl get configMaps -n <namespace>
 kubectl get deployments -l name=value -n namespace -o=jsonpath='{range .items[*]}{.metadata.annotations.meta\.helm\.sh/release-name}{"\n"}{end}'
 ```
 
+## Kubectl Exec into Deployment
+
+```
+kubectl exec -it deployment/some-deployment -c some-containerr -n namespace -- sh
+```
+
+
 ## Kubectl with CURL
 
 ```
