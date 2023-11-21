@@ -75,7 +75,7 @@ helm ls -n namespace
 ## Delete using Wildcard
 
 ```
-kubectl get secrets -n namespace --no-headers=true | awk '/sh.helm.release.v1./{print $1}' | xargs kubectl delete -n namespace
+kubectl get secrets -n namespace --no-headers=true | awk '/sh.helm.release.v1./{print $1}' | xargs kubectl delete secrets -n namespace
 ```
 
 ## Identities
