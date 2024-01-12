@@ -38,6 +38,7 @@ kubectl delete --all deployments -n namespace
 kubectl delete deployment <name> -n <namespace>
 kubectl get configMaps -n <namespace>
 kubectl get deployments -l name=value -n namespace -o=jsonpath='{range .items[*]}{.metadata.annotations.meta\.helm\.sh/release-name}{"\n"}{end}'
+kubectl scale deployment --replicas=6 <deployment> -n <namespace>
 ```
 
 ## Kubectl Exec into Deployment
