@@ -103,3 +103,16 @@ After test finish:
 ```
 kubectl cp --retries=1 $namespace/$listener:capture.cap some-capture.cap
 ```
+
+# CURL in AKS
+
+```
+kubectl run mycurlpod --image=curlimages/curl -i --tty -- sh
+
+kubectl exec mycurlpod -it -- sh
+
+curl -v -X POST -H "api-key:<key>" -H "Content-Type:application/json" Post https://<apim-rul>.regional.azure-api.net/elmsall3/wcs/NX_Foo/v1 --data '{"username":"xyz","password":"xyz"}'
+```
+
+
+
